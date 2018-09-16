@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="normalize.css">
+	<title>Where's Wally now?</title>
+	<style>
+		#back{margin-top: -3em; margin-bottom:6.6em; width: 100%; height: 84px;background:#ed1c22;}
+		#back2 {margin-top: -3em; width: 100%; height: 84px;background:#ed1c22;}
+
+
+		#difficultBox {margin:0 auto; margin-left: auto; margin-right:auto; margin-top: 60px; width: 40%; height: 100px; display: block;}
+
+		#logo {width: 120px; position: relative; background: #00adf1; border-radius: 10px; margin: 1%; opacity: 1; transition: all 1s;}
+		#logo2 {width: 120px; position: relative; background: #45ba48; border-radius: 10px; margin: 1%; opacity: 1; transition: all 1s;}
+		#logo3 {width: 120px; position: relative; background: #f9ab25; border-radius: 10px; margin: 1%; opacity: 1; transition: all 1s;}
+		#logo4 {width: 120px; position: relative; background: #ed1c22; border-radius: 10px; margin: 1%; opacity: 1; transition: all 1s;}
+
+		#real {width: 60%; position: absolute; margin: 0 auto; margin-top: 3em; display: block; margin-left: auto; margin-right:auto; transition: all 1.5s; left: 500px; top: 53px;}
+		#real img {width: 65%; margin-top: 3em; position: absolute; margin: 0 auto; display: block; margin-left: auto; margin-right:auto; left: 400px; }
+
+		#real2 {width: 40%; position: absolute; margin: 0 auto; margin-top: 0em; display: block; margin-left: auto; margin-right:auto; transition: all 1.5s; left: -90px; top: -105px;}
+
+		#real3 {width: 2.4%; position: absolute; display: block; transition: all 1.5s; left: 1262px; top: 250px; cursor: default;}
+
+		#right {width: 5%; position: absolute; display: block; transition: all 1.5s; left: 1262px; top: 250px; cursor: default;}
+
+		#hint {color: white; transition: all 1s;}
+
+		#hint2 {color: white;}
+
+		h1 {font-family: "source-han-serif-korean",serif;}
+
+		h1{font-size:0.9em; line-height:1.7; font-weight: 500; text-align: right; position: absolute; left: 370px; top: 125px; }
+		h2{font-size:1.3em; line-height:7; font-weight: 400; margin-top: -2em; text-align: center; position: absolute; left: 580px; top: 250px; }
+		
+	</style>
+
+</head>
+
+<body>
+	<div id="hint2">
+		<h2><em>" 우와 ! 나는 지금 월리들을 보고 놀란 나머지 한쪽 신발을 벗었어 ! 
+			<br>나는 지금 어디있을까 ? 나를 찾아줘 !"</em></h2>
+	</div>
+	
+	<img src="./img/4.jpg" id="real">
+	<img src="./img/wally22.png" id="real2">
+	<img src="./img/4-1.png" id="real3">
+	<div id="back"></div>
+	<div id="back"></div>
+	<div id="back"></div>
+	<div id="back"></div>
+	<div id="back"></div>
+	<div id="back2"></div>
+
+	<audio id="laugh">
+		<source id="./img/laugh.mp4" type="audio/mpeg">
+	</audio>
+
+	<div id="hint">
+		<h1>힌트를
+		원한다면<br>
+		나를 클릭해봐 !</h1>
+	</div>
+
+	<script type="text/javascript">
+
+		var toggle = "off"
+
+		real2.onclick = function(){
+			if(toggle == "off"){
+				real2.setAttribute("src","./img/wally2222.png");
+				laugh.play();
+				toggle = "on"
+
+				real2.style.opacity = 1;
+				real3.style.opacity = 0;
+				real.style.opacity = 0;
+				hint.style.opacity = 0;
+				back.style.color = "black";
+				back2.style.color = "black";
+				
+			}else if(toggle == "on"){
+				real2.setAttribute("src","./img/wally22.png");
+				laugh.pause();
+				toggle = "off"
+				
+				hint.style.opacity = 1;
+				real2.style.opacity = 1;
+				back2.style.opacity = "#ed1c22";
+				real.style.opacity = 1;
+				back.style.opacity = "#ed1c22";
+			}
+		}
+	</script>
+
+	<script type="text/javascript">
+
+		var toggle = "off"
+
+		real3.onclick = function(){
+			if(toggle == "off"){
+				toggle = "on"
+				real3.setAttribute("src","./img/right.png");
+
+				real3.style.opacity = 1;
+				real.style.opacity = 0.7;
+
+			}else if(toggle == "on"){
+				toggle = "off"
+				real3.setAttribute("src","./img/4-1.png");
+
+				real3.style.opacity = 1;
+				real.style.opacity = 1;
+			}
+		}
+	</script>
+
+	
+	
+</body>
+
+
+</html>
