@@ -5,8 +5,8 @@
 	<link rel="stylesheet" type="text/css" href="normalize.css">
 	<title>Where's Wally now?</title>
 	<style>
-		#back{margin-top: -3em; margin-bottom:6.6em; width: 100%; height: 84px;background:#ed1c22;}
-		#back2 {margin-top: -3em; width: 100%; height: 84px;background:#ed1c22;}
+		#back{margin-top: -3em; margin-bottom:6.6em; width: 100%; height: 84px;background:#ed1c22; opacity: 0.5;}
+		#back2 {margin-top: -3em; width: 100%; height: 84px;background:#ed1c22; opacity: 0.5;}
 
 
 		#difficultBox {margin:0 auto; margin-left: auto; margin-right:auto; margin-top: 60px; width: 40%; height: 100px; display: block;}
@@ -29,6 +29,8 @@
 
 		#hint2 {color: white;}
 
+		#audio 
+
 		h1 {font-family: "source-han-serif-korean",serif;}
 
 		h1{font-size:0.9em; line-height:1.7; font-weight: 500; text-align: right; position: absolute; left: 370px; top: 125px; }
@@ -39,14 +41,8 @@
 </head>
 
 <body>
-	<div id="hint2">
-		<h2><em>" 우와 ! 나는 지금 월리들을 보고 놀란 나머지 한쪽 신발을 벗었어 ! 
-			<br>나는 지금 어디있을까 ? 나를 찾아줘 !"</em></h2>
-	</div>
 	
-	<img src="./img/4.jpg" id="real">
-	<img src="./img/wally22.png" id="real2">
-	<img src="./img/4-1.png" id="real3">
+	
 	<div id="back"></div>
 	<div id="back"></div>
 	<div id="back"></div>
@@ -54,8 +50,25 @@
 	<div id="back"></div>
 	<div id="back2"></div>
 
-	<audio id="laugh">
-		<source id="./img/laugh.mp4" type="audio/mpeg">
+	<div id="hint2">
+		<h2><em>" 우와 ! 나는 지금 월리들을 보고 놀란 나머지 한쪽 신발을 벗었어 ! 
+			<br>나는 지금 어디있을까 ? 나를 찾아줘 !"</em></h2>
+	</div>
+
+	<img src="./img/4.png" id="real">
+	<img src="./img/wally22.png" id="real2">
+	<img src="./img/4-1.png" id="real3">
+
+	<audio id="soundMusic">
+		<source src="./img/sound.mp4" type="audio/mpeg">
+	</audio>
+
+	<audio id="soundMusic2">
+		<source src="./img/laugh.mp4" type="audio/mpeg">
+	</audio>
+
+	<audio id="soundMusic3">
+		<source src="./img/correct.mp4" type="audio/mpeg">
 	</audio>
 
 	<div id="hint">
@@ -68,10 +81,26 @@
 
 		var toggle = "off"
 
+		real.onclick = function(){
+			if(toggle == "off"){
+				soundMusic2.play()
+				toggle = "on"
+				
+			}else if(toggle == "on"){
+				soundMusic2.pause()
+				toggle = "off"
+			}
+		}
+	</script>
+
+	<script type="text/javascript">
+
+		var toggle = "off"
+
 		real2.onclick = function(){
 			if(toggle == "off"){
 				real2.setAttribute("src","./img/wally2222.png");
-				laugh.play();
+				soundMusic.play()
 				toggle = "on"
 
 				real2.style.opacity = 1;
@@ -83,7 +112,6 @@
 				
 			}else if(toggle == "on"){
 				real2.setAttribute("src","./img/wally22.png");
-				laugh.pause();
 				toggle = "off"
 				
 				hint.style.opacity = 1;
@@ -103,23 +131,43 @@
 			if(toggle == "off"){
 				toggle = "on"
 				real3.setAttribute("src","./img/right.png");
+				soundMusic3.play()
 
 				real3.style.opacity = 1;
-				real.style.opacity = 0.7;
+				real.style.opacity = 0.6;
+				real3.style.width = "100px";
 
 			}else if(toggle == "on"){
 				toggle = "off"
 				real3.setAttribute("src","./img/4-1.png");
+				soundMusic3.pause()
 
-				real3.style.opacity = 1;
+				real3.style.opacity = 0;
 				real.style.opacity = 1;
 			}
 		}
 	</script>
 
-	
+	<script type="text/javascript">
+
+		var toggle = "off"
+
+		audio.onclick = function(){
+			if(toggle == "off"){
+				toggle = "on"
+				soundMusic.play()
+
+				real.style.opacity = 0.6;
+			}else if(toggle == "on"){
+				toggle = "off"
+				real3.setAttribute("src","./img/4-1.png");
+
+				real3.style.opacity = 0;
+				real.style.opacity = 1;
+			}
+		}
+	</script>
 	
 </body>
-
 
 </html>
